@@ -4,15 +4,12 @@ class LikeButton extends React.Component {
     this.state = { liked: false };
   }
 
+  open = () => this.setState({ liked: true });
+
   render() {
     if (this.state.liked) {
       return 'You liked this.';
     }
-
-    return React.createElement(
-      'button',
-      { onClick: () => this.setState({ liked: true }) },
-      'Like'
-    );
+    return <button onClick={ this.open }>Like</button>;
   }
 }
