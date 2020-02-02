@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "node index.js",
+    "start": "node cli.js",
     "singleton:class": "node --experimental-modules src/singleton/class",
     "singleton:module": "node --experimental-modules src/singleton/module",
     "singleton:simpliest": "node --experimental-modules src/singleton/simpliest",
