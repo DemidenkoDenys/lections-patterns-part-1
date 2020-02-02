@@ -1,15 +1,23 @@
-class LikeButton extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { liked: false };
-  }
+const accordeonItems = [
+  { title: 'item-1', description: 'item-1-description' },
+  { title: 'item-2', description: 'item-2-description' },
+  { title: 'item-3', description: 'item-3-description' },
+];
 
-  open = () => this.setState({ liked: true });
+const AccordeonItem = ({ title, description, isOpen, toggleClick }) => (
+  <div>
+    <h1 onClick={toggleClick}>{ title }</h1>
+    <p style={{ display: isOpen ? 'block' : 'none' }}>{ description }</p>
+  </div>
+);
 
-  render() {
-    if (this.state.liked) {
-      return 'You liked this.';
-    }
-    return <button onClick={ this.open }>Like</button>;
-  }
+const AccordeonList = () => {
+  const DecoratedComponent = ToggleDecorator(AccordeonItem);
+  return accordeonItems.map(({ title, description }) => (
+    <DecoratedComponent
+      key={title}
+      title={title}
+      description={description}
+    />
+  ));
 }

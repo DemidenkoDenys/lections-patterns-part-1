@@ -1,11 +1,17 @@
-const decorator = OriginalComponent => class WrapperComponent extends React.Component {
+const ToggleDecorator = OriginalComponent => {
+  return class WrapperComponent extends React.Component {
+    
+    constructor(props) {
+      super(props);
+      this.state = {
+        isOpen: false
+      }
+    }
 
-  constructor(props){
-    super(props);
-  }
+    toggleClick = () => this.setState({ isOpen: !this.state.isOpen });
 
-  render() {
-    console.log('decorator works');
-    return <OriginalComponent />;
-  }
-};
+    render() {
+      return <OriginalComponent { ...this.state } { ...this.props } toggleClick={this.toggleClick} />;
+    }
+  };
+}
