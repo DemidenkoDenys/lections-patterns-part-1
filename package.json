@@ -1,15 +1,26 @@
 {
   "scripts": {
+
     "singleton:class": "node --experimental-modules src/singleton/class",
     "singleton:module": "node --experimental-modules src/singleton/module",
     "singleton:simpliest": "node --experimental-modules src/singleton/simpliest",
+
+    "decorator:react": "npx http-server -o src/decorator/react",
+    "decorator:console": "npx ts-node src/decorator/console",
     "decorator:readonly": "npx ts-node src/decorator/readonly",
     "decorator:array-wrapper": "npx ts-node src/decorator/array-wrapper"
+
   },
   "dependencies": {
     "@types/reflect-metadata": "^0.1.0",
+    "http-server": "^0.12.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "reflect-metadata": "^0.1.13",
     "ts-node": "8.6.2",
     "typescript": "3.7.5"
+  },
+  "devDependencies": {
+    "@types/node": "^13.7.0"
   }
 }

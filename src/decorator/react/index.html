@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon"type="image/x-icon" href="data:image/x-icon;,">
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+    <script src="component.js"></script>
+
+  </head>
+
+  <body>
+    <div id="react-app-container"></div>
+  </body>
+
+  <script>
+    const domContainer = document.getElementById('react-app-container');
+    ReactDOM.render(React.createElement(LikeButton), domContainer);
+  </script>
+
+</html>
