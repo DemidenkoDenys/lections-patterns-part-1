@@ -9,7 +9,8 @@ const questions = {
       message: 'Choose pattern to run:',
       choices: [
         'singleton',
-        'decorator'
+        'decorator',
+        'facade'
       ],
       default: 'singleton',
     }
@@ -51,6 +52,28 @@ const questions = {
         }, {
           name: 'React component decorator',
           value: 'decorator:react'
+        },
+      ],
+    }
+  ],
+  facade: [
+    {
+      type: 'list',
+      name: 'type',
+      message: 'Choose facade example:',
+      choices: [
+        {
+          name: 'API facade',
+          value: 'facade:api'
+        }, {
+          name: 'jQuery facade commands',
+          value: 'facade:jquery'
+        }, {
+          name: 'Angular facade',
+          value: 'facade:angular'
+        }, {
+          name: 'React hooks facade',
+          value: 'facade:react'
         },
       ],
     }

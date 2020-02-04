@@ -7,11 +7,14 @@
     "decorator:react": "npx http-server -o src/decorator/react",
     "decorator:console": "npx ts-node src/decorator/console",
     "decorator:readonly": "npx ts-node src/decorator/readonly",
-    "decorator:array-wrapper": "npx ts-node src/decorator/array-wrapper"
+    "decorator:array-wrapper": "npx ts-node src/decorator/array-wrapper",
+    "facade:api": "node --experimental-modules src/facade/api"
   },
   "dependencies": {
     "@types/reflect-metadata": "^0.1.0",
+    "form-data": "^3.0.0",
     "http-server": "^0.12.1",
+    "node-fetch": "^2.6.0",
     "reflect-metadata": "^0.1.13",
     "ts-node": "8.6.2",
     "typescript": "3.7.5"
@@ -57,7 +60,10 @@
       "react/jsx-filename-extension": [
         1,
         {
-          "extensions": [".js", ".jsx"]
+          "extensions": [
+            ".js",
+            ".jsx"
+          ]
         }
       ],
       "prettier/prettier": [
@@ -67,7 +73,9 @@
         }
       ]
     },
-    "plugins": ["prettier"],
+    "plugins": [
+      "prettier"
+    ],
     "parser": "babel-eslint"
   }
 }
