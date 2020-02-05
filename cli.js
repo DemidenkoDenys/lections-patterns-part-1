@@ -10,9 +10,10 @@ const questions = {
       choices: [
         'singleton',
         'decorator',
-        'facade'
+        'facade',
+        'builder',
       ],
-      default: 'singleton',
+      default: 'builder',
     }
   ],
   singleton: [
@@ -56,28 +57,32 @@ const questions = {
       ],
     }
   ],
-  facade: [
-    {
-      type: 'list',
-      name: 'type',
-      message: 'Choose facade example:',
-      choices: [
-        {
-          name: 'API facade',
-          value: 'facade:api'
-        }, {
-          name: 'jQuery facade commands',
-          value: 'facade:jquery'
-        }, {
-          name: 'Angular facade',
-          value: 'facade:angular'
-        }, {
-          name: 'React hooks facade',
-          value: 'facade:react'
-        },
-      ],
-    }
-  ]
+  facade: [{
+    type: 'list',
+    name: 'type',
+    message: 'Choose facade example:',
+    choices: [
+      {
+        name: 'API facade',
+        value: 'facade:api'
+      }, {
+        name: 'Angular facade',
+        value: 'facade:angular'
+      }, {
+        name: 'React hooks facade',
+        value: 'facade:react'
+      },
+    ],
+  }],
+  builder: [{
+    type: 'list',
+    name: 'type',
+    message: 'Choose builder pattern example:',
+    choices: [{
+      name: 'React component builder',
+      value: 'builder:react'
+    }]
+  }]
 };
 
 const run = async () => {
