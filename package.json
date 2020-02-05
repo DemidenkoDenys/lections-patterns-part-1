@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@types/reflect-metadata": "^0.1.0",
+    "figlet": "^1.2.4",
     "form-data": "^3.0.0",
     "http-server": "^0.12.1",
     "node-fetch": "^2.6.0",

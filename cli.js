@@ -1,3 +1,4 @@
+const figlet = require('figlet');
 const inquirer = require('inquirer');
 const { execSync } = require('child_process');
 
@@ -81,9 +82,17 @@ const questions = {
 };
 
 const run = async () => {
-  const { pattern } = await inquirer.prompt(questions.patterns);
-  const { type } = await inquirer.prompt(questions[pattern]);
-  return execSync(`npm run ${type}`, { stdio: 'inherit' });
+  const reportFiglet = text => console.log(`\x1b[32m${text}\n`);
+  const askForChoose = async () => {
+    const { pattern } = await inquirer.prompt(questions.patterns);
+    const { type } = await inquirer.prompt(questions[pattern]);
+    return execSync(`npm run ${type}`, { stdio: 'inherit' });
+  }
+  const executeCli = (_, text) => {
+    reportFiglet(text);
+    askForChoose();
+  };
+  figlet('Patterns  pt.1', executeCli);
 };
 
 run();
