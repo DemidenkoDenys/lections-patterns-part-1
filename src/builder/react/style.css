@@ -1,0 +1,57 @@
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+li {
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 10px;
+  border: 1px dotted lightgrey;
+  box-sizing: border-box;
+}
+
+li:last-child {
+  padding: 0;
+}
+
+li:hover a {
+  color: red;
+}
+
+a {
+  float: right;
+  color: white;
+  padding: 0 5px;
+  font-size: 18px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+strong {
+  cursor: pointer;
+}
+
+strong:before {
+  content: '-';
+  display: inline-block;
+  width: 20px;
+  text-align: center;
+}
+
+.done strong {
+  color: lightgrey;
+}
+
+.done strong:before {
+  content: '+';
+}
+
+input {
+  border: 0;
+  outline: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  padding-left: 30px;
+}
