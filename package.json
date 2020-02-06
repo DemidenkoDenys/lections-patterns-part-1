@@ -10,7 +10,8 @@
     "decorator:array-wrapper": "npx ts-node src/decorator/array-wrapper",
     "facade:api": "node --experimental-modules src/facade/api",
     "facade:react": "npx http-server -o src/facade/react",
-    "builder:react": "npx http-server -o src/builder/react"    
+    "builder:react": "npx http-server -o src/builder/react",
+    "builder:user": "npx ts-node src/builder/user"
   },
   "dependencies": {
     "@types/reflect-metadata": "^0.1.0",

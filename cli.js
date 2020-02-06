@@ -82,6 +82,9 @@ const questions = {
     choices: [{
       name: 'React component builder',
       value: 'builder:react'
+    }, {
+      name: 'User builder',
+      value: 'builder:user'
     }]
   }]
 };
