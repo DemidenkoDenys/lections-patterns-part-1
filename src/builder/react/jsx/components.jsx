@@ -12,8 +12,8 @@ const TodoAddFormComponent = ({ onAdd }) =>
 const TodoItemComponent = ({ todo, onDone, onRemove }) => {
   return (
     <li className={todo.done ? 'done' : ''} >
-      <strong onClick={() => onDone(todo.id)} >{ todo.text }</strong>
-      <a onClick={() => onRemove(todo.id)} >&#128465;</a>
+      <i onClick={onDone.bind(this, todo.id)} >{ todo.text }</i>
+      <a onClick={onRemove.bind(this, todo.id)} >&#128465;</a>
     </li>
   );
 };
@@ -57,4 +57,4 @@ const mapDispatchToProps = dispatch => ({
   removeTodo: id => dispatch(actions.removeTodoAction(id)),
 });
 
-const TodoList = ReactRedux.connect(mapStateToProps, mapDispatchToProps)(TodoListComponent);
+const TodoApp = ReactRedux.connect(mapStateToProps, mapDispatchToProps)(TodoListComponent);

@@ -28,22 +28,23 @@ a {
   cursor: pointer;
 }
 
-strong {
+i {
+  display: inline-block;
   cursor: pointer;
 }
 
-strong:before {
+i:before {
   content: '-';
   display: inline-block;
   width: 20px;
   text-align: center;
 }
 
-.done strong {
+.done i {
   color: lightgrey;
 }
 
-.done strong:before {
+.done i:before {
   content: '+';
 }
 
