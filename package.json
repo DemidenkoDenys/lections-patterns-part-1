@@ -8,7 +8,8 @@
     "decorator:console": "npx ts-node src/decorator/console",
     "decorator:readonly": "npx ts-node src/decorator/readonly",
     "decorator:array-wrapper": "npx ts-node src/decorator/array-wrapper",
-    "facade:api": "node --experimental-modules src/facade/api"
+    "facade:api": "node --experimental-modules src/facade/api",
+    "builder:react": "npx http-server -o src/builder/react"    
   },
   "dependencies": {
     "@types/reflect-metadata": "^0.1.0",
