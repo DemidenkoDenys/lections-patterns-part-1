@@ -12,7 +12,9 @@
     "facade:react": "npx http-server -o src/facade/react",
     "builder:react": "npx http-server -o src/builder/react",
     "builder:user": "npx ts-node src/builder/user",
-    "factory:user": "npx ts-node src/factory/user"
+    "factory:user": "npx ts-node src/factory/user",
+    "factory:angular": "",
+    "factory:angular:start": "cd src/factory/angular && npm start"
   },
   "dependencies": {
     "@types/inquirer": "^6.5.0",
