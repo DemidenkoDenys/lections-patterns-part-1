@@ -1,99 +1,45 @@
 const figlet = require('figlet');
 const inquirer = require('inquirer');
+const questionsFactory = require('./cli-questions.factory');
 const { execSync } = require('child_process');
 
-const questions = {
-  patterns: [
-    {
-      type: 'list',
-      name: 'pattern',
-      message: 'Choose pattern to run:',
-      choices: [
-        'singleton',
-        'decorator',
-        'facade',
-        'builder',
-      ],
-      default: 'builder',
-    }
-  ],
-  singleton: [
-    {
-      type: 'list',
-      name: 'type',
-      message: 'Choose singleton type:',
-      choices: [
-        {
-          name: 'Simpliest implementation of Singleton',
-          value: 'singleton:simpliest'
-        }, {
-          name: 'Singleton written by class',
-          value: 'singleton:class',
-        }, {
-          name: 'Singleton written by module',
-          value: 'singleton:module',
-        },
-      ],
-    }
-  ],
-  decorator: [
-    {
-      type: 'list',
-      name: 'type',
-      message: 'Choose decorator example:',
-      choices: [
-        {
-          name: 'Readonly decorator',
-          value: 'decorator:readonly'
-        }, {
-          name: 'Array wrapper decorator',
-          value: 'decorator:array-wrapper'
-        }, {
-          name: 'Decorator of console messages',
-          value: 'decorator:console'
-        }, {
-          name: 'React component decorator',
-          value: 'decorator:react'
-        },
-      ],
-    }
-  ],
-  facade: [{
-    type: 'list',
-    name: 'type',
-    message: 'Choose facade example:',
-    choices: [
-      {
-        name: 'API facade',
-        value: 'facade:api'
-      }, {
-        name: 'Angular facade',
-        value: 'facade:angular'
-      }, {
-        name: 'React hooks facade',
-        value: 'facade:react'
-      },
-    ],
-  }],
-  builder: [{
-    type: 'list',
-    name: 'type',
-    message: 'Choose builder pattern example:',
-    choices: [{
-      name: 'React component builder',
-      value: 'builder:react'
-    }, {
-      name: 'User builder',
-      value: 'builder:user'
-    }]
-  }]
+const patterns = {
+  singleton: {
+    simpliest: 'Simpliest implementation of Singleton',
+    class: 'Singleton written by class',
+    module: 'Singleton written by module',
+  },
+  decorator: {
+    readonly: 'Readonly decorator',
+    arrayWrapper: 'Array wrapper decorator',
+    console: 'Decorator of console messages',
+    react: 'React component decorator'
+  },
+  builder: {
+    react: 'React component builder',
+    user: 'User builder'
+  },
+  facade: {
+    api: 'API facade',
+    angular: 'Angular facade',
+    react: 'React hooks facade'
+  },
+  factory: {
+    angular: 'Angular reactive form factory',
+    user: 'User factory'
+  }
 };
+
+const questions = {
+  ...questionsFactory.setRootList('patterns', 'Choose pattern to run:', Object.keys(patterns)),
+  ...questionsFactory.setSubLists(patterns)
+}
 
 const run = async () => {
   const reportFiglet = text => console.log(`\x1b[32m${text}\n`);
   const askForChoose = async () => {
-    const { pattern } = await inquirer.prompt(questions.patterns);
-    const { type } = await inquirer.prompt(questions[pattern]);
+    const { patterns } = await inquirer.prompt(questions.patterns);
+    const { type } = await inquirer.prompt(questions[patterns]);
     return execSync(`npm run ${type}`, { stdio: 'inherit' });
   }
   const executeCli = (_, text) => {

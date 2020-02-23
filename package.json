@@ -7,13 +7,15 @@
     "decorator:react": "npx http-server -o src/decorator/react",
     "decorator:console": "npx ts-node src/decorator/console",
     "decorator:readonly": "npx ts-node src/decorator/readonly",
-    "decorator:array-wrapper": "npx ts-node src/decorator/array-wrapper",
+    "decorator:arrayWrapper": "npx ts-node src/decorator/array-wrapper",
     "facade:api": "node --experimental-modules src/facade/api",
     "facade:react": "npx http-server -o src/facade/react",
     "builder:react": "npx http-server -o src/builder/react",
-    "builder:user": "npx ts-node src/builder/user"
+    "builder:user": "npx ts-node src/builder/user",
+    "factory:user": "npx ts-node src/factory/user"
   },
   "dependencies": {
+    "@types/inquirer": "^6.5.0",
     "@types/reflect-metadata": "^0.1.0",
     "figlet": "^1.2.4",
     "form-data": "^3.0.0",
@@ -24,7 +26,7 @@
     "typescript": "3.7.5"
   },
   "devDependencies": {
-    "@types/node": "^13.7.0",
+    "@types/node": "^13.7.4",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.6.0",
     "eslint-config-airbnb": "^18.0.1",
