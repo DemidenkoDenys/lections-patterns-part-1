@@ -9,13 +9,13 @@ interface UserInterface {
 }
 
 class User implements UserInterface {
-  age?;
-  email?;
-  gender;
-  lastname;
-  nickname?;
-  firstname;
-  birthdate;
+  age?: string;
+  email?: string;
+  gender: 'male' | 'female';
+  lastname: string;
+  nickname?: string;
+  firstname: string;
+  birthdate: Date;
 
   constructor() {}
 }
