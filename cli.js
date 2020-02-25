@@ -28,6 +28,9 @@ const patterns = {
   factory: {
     form: 'Javascript form factory',
     user: 'User factory'
+  },
+  flyweight: {
+    settings: 'Flyweight settings example'
   }
 };
 

@@ -13,7 +13,8 @@
     "builder:react": "npx http-server -o src/builder/react",
     "builder:user": "npx ts-node src/builder/user",
     "factory:user": "npx ts-node src/factory/user",
-    "factory:form": "npx http-server -o src/factory/form"
+    "factory:form": "npx http-server -o src/factory/form",
+    "flyweight:settings": "npx ts-node src/flyweight/settings"
   },
   "dependencies": {
     "@types/inquirer": "^6.5.0",
