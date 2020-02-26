@@ -7,6 +7,13 @@ class ValidationStrategy {
     }
   }
 
+  rangeStrategy(min, max) {
+    return {
+      validate: value => value > min && value < max,
+      message: 'Value is required',
+    }
+  }
+
   get emailSoftStrategy() {
     return {
       validate: value => value.includes('@') && email.includes('.') && email.split('.')[1].length >= 2,
@@ -34,6 +41,4 @@ class ValidationStrategy {
       message: "Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters",
     };
   }
-
-
 }

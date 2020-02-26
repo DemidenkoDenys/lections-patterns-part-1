@@ -5,12 +5,6 @@
 class ElementFactory {
   constructor() {}
 
-  getElement = type => {
-    switch (type) {
-      case 'text':
-    }
-  }
-
   get form() {
     return document.createElement('form');
   }
@@ -63,6 +57,7 @@ class ElementFactory {
 class FormFactory {
 
   form;
+  validations = {};
   elementFactory;
 
   constructor() {
@@ -70,8 +65,17 @@ class FormFactory {
     this.form = this.elementFactory.form;
     this.form.appendChild(this.elementFactory.submitButton);
     this.form.addEventListener('submit', (event) => {
-      event.preventDefault();
-      return false;
+      for (let i = 0; i < document.forms[0].elements.length; i++) {
+        const field = document.forms[0].elements[i];
+        if (this.validations[field.name]) {
+          if (!this.validations[field.name].validate(field.value)) {
+            field.focus();
+            alert(this.validations[field.name].message);
+            event.preventDefault();
+            return false;
+          }
+        }
+      }
     });
   }
 
@@ -108,15 +112,12 @@ class FormFactory {
     this.setId(field, this.getFieldId(name));
     this.setLabel(field, label);
     this.setPlaceholder(field, placeholder);
-
-    if (validation) {
-      field.addEventListener('blur', console.log(validation.validate(field.value)));
-    }
+    this.setValidation(name, validation);
 
     this.form.appendChild(field);
   }
 
-  addInputPassword = ({ name, value, placeholder, label }) => {
+  addInputPassword = ({ name, value, placeholder, label, validation }) => {
     const field = this.elementFactory.inputPassword;
 
     field.name = name;
@@ -125,11 +126,12 @@ class FormFactory {
     this.setId(field, this.getFieldId(name));
     this.setLabel(field, label);
     this.setPlaceholder(field, placeholder);
+    this.setValidation(name, validation);
 
     this.form.appendChild(field);
   }
 
-  addInputNumber = ({ name, value, placeholder, label, min, max }) => {
+  addInputNumber = ({ name, value, placeholder, label, min, max, validation }) => {
     const field = this.elementFactory.inputNumber;
 
     field.name = name;
@@ -140,16 +142,20 @@ class FormFactory {
     this.setMax(field, max);
     this.setLabel(field, label);
     this.setPlaceholder(field, placeholder);
+    this.setValidation(name, validation);
 
     this.form.appendChild(field);
   }
 
-  addSelect = ({ name, label, options }) => {
+  addSelect = ({ name, label, options, validation }) => {
     const select = this.elementFactory.select;
+    
+    select.name = name;
 
     this.setId(select, this.getFieldId(name));
     this.setLabel(select, label);
     this.setOptions(select, options);
+    this.setValidation(name, validation);
 
     this.form.appendChild(select);
   }
@@ -208,6 +214,12 @@ class FormFactory {
         const option = this.getSelectOption(value, text);
         element.appendChild(option);
       });
+    }
+  }
+
+  setValidation = (name, strategy) => {
+    if (strategy) {
+      this.validations[name] = strategy;
     }
   }
 }

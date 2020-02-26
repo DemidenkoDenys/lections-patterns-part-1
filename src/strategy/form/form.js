@@ -12,7 +12,7 @@ factory.addField('number', {
   name: 'experience',
   label: 'Experience',
   placeholder: 'enter your experience in years',
-  validation: validations.requiredStrategy
+  validation: validations.rangeStrategy(1, 20)
 });
 
 factory.addField('text', {
