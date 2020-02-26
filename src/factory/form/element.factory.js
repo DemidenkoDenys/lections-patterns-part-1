@@ -17,6 +17,12 @@ class ElementFactory {
     return field;
   }
 
+  get inputPassword() {
+    const field = document.createElement('input');
+    field.setAttribute('type', 'password');
+    return field;
+  }
+
   get inputNumber() {
     const field = document.createElement('input');
     field.setAttribute('type', 'number');

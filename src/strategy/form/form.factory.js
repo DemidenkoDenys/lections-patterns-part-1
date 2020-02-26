@@ -1,3 +1,65 @@
+
+
+//---- Element Factory ----//
+
+class ElementFactory {
+  constructor() {}
+
+  getElement = type => {
+    switch (type) {
+      case 'text':
+    }
+  }
+
+  get form() {
+    return document.createElement('form');
+  }
+
+  get inputText() {
+    const field = document.createElement('input');
+    field.setAttribute('type', 'text');
+    return field;
+  }
+
+  get inputPassword() {
+    const field = document.createElement('input');
+    field.setAttribute('type', 'password');
+    return field;
+  }
+
+  get inputNumber() {
+    const field = document.createElement('input');
+    field.setAttribute('type', 'number');
+    return field;
+  }
+
+  get submitButton() {
+    const button = document.createElement('button');
+    button.setAttribute('type', 'submit');
+    button.innerHTML = 'Submit';
+    return button;
+  }
+
+  get select() {
+    return document.createElement('select');
+  }
+
+  get option() {
+    return document.createElement('option');
+  }
+
+  getLabel(text) {
+    const label = document.createElement('label');
+    label.textContent = text;
+    label.setAttribute('for', text);
+    return label;
+  }
+}
+
+
+
+//---- Form Factory ----//
+
 class FormFactory {
 
   form;
@@ -6,6 +68,11 @@ class FormFactory {
   constructor() {
     this.elementFactory = new ElementFactory();
     this.form = this.elementFactory.form;
+    this.form.appendChild(this.elementFactory.submitButton);
+    this.form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      return false;
+    });
   }
 
   get form() {
@@ -32,7 +99,7 @@ class FormFactory {
     }
   }
 
-  addInputText = ({ name, value, placeholder, label }) => {
+  addInputText = ({ name, value, placeholder, label, validation }) => {
     const field = this.elementFactory.inputText;
 
     field.name = name;
@@ -41,6 +108,10 @@ class FormFactory {
     this.setId(field, this.getFieldId(name));
     this.setLabel(field, label);
     this.setPlaceholder(field, placeholder);
+
+    if (validation) {
+      field.addEventListener('blur', console.log(validation.validate(field.value)));
+    }
 
     this.form.appendChild(field);
   }

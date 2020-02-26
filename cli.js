@@ -31,6 +31,9 @@ const patterns = {
   },
   flyweight: {
     settings: 'Flyweight settings example'
+  },
+  strategy: {
+    form: 'Form strategy validation'
   }
 };
 
