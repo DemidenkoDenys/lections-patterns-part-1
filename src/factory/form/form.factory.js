@@ -1,100 +1,76 @@
+const elementFactory = new ElementFactory();
+
 class FormFactory {
 
-  form;
-  elementFactory;
-
-  constructor() {
-    this.elementFactory = new ElementFactory();
-    this.form = this.elementFactory.form;
+  constructor(params) {
+    this.form = elementFactory.form;
+    params.map(param => this.addField(param));
   }
 
-  get form() {
-    return this.form;
+  addField = (options) => {
+    const field = this.getField(options);
+    this.form.appendChild(field);
   }
 
-  addField = (type, options) => {
-    switch (type) {
+  getField(options) {
+    switch (options.type) {
       case 'text':
-        this.addInputText(options);
-        break;
-
+        return this.getInputTextElement(options);
       case 'number':
-        this.addInputNumber(options);
-        break;
-
+        return this.getInputNumberElement(options);
       case 'password':
-        this.addInputPassword(options);
-        break;
-
+        return this.getInputPasswordElement(options);
       case 'select':
-        this.addSelect(options);
-        break;
+        return this.getSelectElement(options);
     }
   }
 
-  addInputText = ({ name, value, placeholder, label }) => {
-    const field = this.elementFactory.inputText;
-
-    field.name = name;
-    field.value = value || '';
-
+  getInputTextElement = ({ name, value, placeholder, label }) => {
+    const field = elementFactory.inputText;
     this.setId(field, this.getFieldId(name));
+    this.setName(field, name);
+    this.setValue(field, value);
     this.setLabel(field, label);
     this.setPlaceholder(field, placeholder);
-
-    this.form.appendChild(field);
+    return field;
   }
 
-  addInputPassword = ({ name, value, placeholder, label }) => {
-    const field = this.elementFactory.inputPassword;
-
-    field.name = name;
-    field.value = value || '';
-
+  getInputPasswordElement = ({ name, value, placeholder, label }) => {
+    const field = elementFactory.inputPassword;
     this.setId(field, this.getFieldId(name));
+    this.setName(field, name);
+    this.setValue(field, value);
     this.setLabel(field, label);
     this.setPlaceholder(field, placeholder);
-
-    this.form.appendChild(field);
+    return field;
   }
 
-  addInputNumber = ({ name, value, placeholder, label, min, max }) => {
-    const field = this.elementFactory.inputNumber;
-
-    field.name = name;
-    field.value = value || min || 0;
-
+  getInputNumberElement = ({ name, value, placeholder, label, min, max }) => {
+    const field = elementFactory.inputNumber;
     this.setId(field, this.getFieldId(name));
+    this.setName(field, name);
+    this.setValue(field, value || min || 0);
     this.setMin(field, min);
     this.setMax(field, max);
     this.setLabel(field, label);
     this.setPlaceholder(field, placeholder);
-
-    this.form.appendChild(field);
+    return field;
   }
 
-  addSelect = ({ name, label, options }) => {
-    const select = this.elementFactory.select;
-
+  getSelectElement = ({ name, label, options }) => {
+    const select = elementFactory.select;
     this.setId(select, this.getFieldId(name));
     this.setLabel(select, label);
     this.setOptions(select, options);
-
-    this.form.appendChild(select);
+    return select;
   }
 
-  getSelectOption = (value, text) => {
-    const option = this.elementFactory.option;
-    option.value = value || this.uniqueId;
-    option.text = text;
-    return option;
+  getForm() {
+    this.form.appendChild(elementFactory.submitButton);
+    return this.form;
   }
 
   getFieldId = name => `${name}-form-field`;
-
-  get uniqueId() {
-    return `_${Math.random().toString(36).substr(2, 9)}`;
-  }
 
 
   // QUEST 3 - implement setPlaceholder function
@@ -103,6 +79,18 @@ class FormFactory {
   setId = (element, id) => {
     if (element && id) {
       element.setAttribute('id', id);
+    }
+  }
+
+  setName = (element, name) => {
+    if (element && name) {
+      element.name = name;
+    }
+  }
+
+  setValue = (element, value) => {
+    if (element && value) {
+      element.value = value || '';
     }
   }
 
@@ -126,17 +114,17 @@ class FormFactory {
   
   setLabel = (element, labelText) => {
     if (element, labelText) {
-      const label = this.elementFactory.getLabel(labelText);
+      const label = elementFactory.getLabel(labelText);
+      label.setAttribute('for', element.id);
       this.form.appendChild(label);
     }
   }
 
   setOptions = (element, options) => {
     if (options && Array.isArray(options)) {
-      options.map(({ value, text }) => {
-        const option = this.getSelectOption(value, text);
-        element.appendChild(option);
-      });
+      options.map(({ value, text }) =>
+        element.appendChild(elementFactory.getOption(value, text)
+      ))
     }
   }
 }

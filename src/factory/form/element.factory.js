@@ -1,10 +1,9 @@
 class ElementFactory {
+
   constructor() {}
 
-  getElement = type => {
-    switch (type) {
-      case 'text':
-    }
+  get uniqueId() {
+    return `_${Math.random().toString(36).substr(2, 9)}`;
   }
 
   get form() {
@@ -29,6 +28,13 @@ class ElementFactory {
     return field;
   }
 
+  get submitButton() {
+    const button = document.createElement('button');
+    button.type = 'submit';
+    button.textContent = 'Submit';
+    return button;
+  }
+
   get select() {
     return document.createElement('select');
   }
@@ -37,10 +43,16 @@ class ElementFactory {
     return document.createElement('option');
   }
 
+  getOption(value, text) {
+    const option = this.option;
+    option.value = value || this.uniqueId;
+    option.text = text;
+    return option;
+  }
+
   getLabel(text) {
     const label = document.createElement('label');
     label.textContent = text;
-    label.setAttribute('for', text);
     return label;
   }
 }

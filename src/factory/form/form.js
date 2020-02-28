@@ -1,39 +1,38 @@
-const factory = new FormFactory();
+const fieldsParams = [
+  {
+    type: 'text',
+    name: 'name',
+    label: 'Name'
+  },
+  {
+    type: 'number',
+    name: 'experience',
+    min: 1,
+    max: 20,
+  },
+  {
+    type: 'text',
+    name: 'email',
+    placeholder: 'Enter your email',
+  },
+  {
+    type: 'password',
+    name: 'password',
+    value: '1234567',
+  },
+  {
+    type: 'select',
+    name: 'city',
+    label: 'Select city',
+    options: [
+      { value: 'kharkiv', text: 'Kharkiv' },
+      { value: 'kyiv', text: 'Kyiv' },
+      { value: 'lviv', text: 'Lviv' },
+    ]
+  }
+];
 
-factory.addField('text', {
-  name: 'name',
-  placeholder: 'enter your name',
-});
+const formFactory = new FormFactory(fieldsParams);
+const form = formFactory.getForm();
 
-factory.addField('number', {
-  min: 1,
-  max: 20,
-  name: 'experience',
-  label: 'Experience',
-  placeholder: 'enter your experience in years',
-});
-
-factory.addField('text', {
-  name: 'email',
-  label: 'Email',
-  placeholder: 'enter your email',
-});
-
-factory.addField('password', {
-  name: 'password',
-  label: 'Password',
-  value: '',
-  placeholder: 'enter your password',
-});
-
-factory.addField('select', {
-  name: 'city',
-  label: 'Select city',
-  options: [
-    { value: 'kharkiv', text: 'Kharkiv' },
-    { value: 'kyiv', text: 'Kyiv' },
-    { value: 'lviv', text: 'Lviv' },
-  ]
-});
-
-document.getElementById('form-wrapper').appendChild(factory.form);
+document.getElementById('form-wrapper').appendChild(form);
