@@ -93,8 +93,8 @@ const questions = {
     name: 'type',
     message: 'Choose factory pattern example:',
     choices: [{
-      name: 'Angular reactive form factory',
-      value: 'factory:angular'
+      name: 'Javascrtipt form factory',
+      value: 'factory:form'
     }, {
       name: 'User factory',
       value: 'factory:user'

@@ -1,7 +1,8 @@
 const figlet = require('figlet');
 const inquirer = require('inquirer');
-const questionsFactory = require('./cli-questions.factory');
 const { execSync } = require('child_process');
+const questionsFactory = require('./cli-questions.factory');
+
 
 const patterns = {
   singleton: {
@@ -25,15 +26,23 @@ const patterns = {
     react: 'React hooks facade'
   },
   factory: {
-    angular: 'Angular reactive form factory',
+    form: 'Javascript form factory',
     user: 'User factory'
+  },
+  flyweight: {
+    settings: 'Flyweight settings example'
+  },
+  strategy: {
+    form: 'Form strategy validation'
   }
 };
 
+
 const questions = {
   ...questionsFactory.setRootList('patterns', 'Choose pattern to run:', Object.keys(patterns)),
-  ...questionsFactory.setSubLists(patterns)
+  ...questionsFactory.setChoiceLists(patterns)
 }
+
 
 const run = async () => {
   const reportFiglet = text => console.log(`\x1b[32m${text}\n`);

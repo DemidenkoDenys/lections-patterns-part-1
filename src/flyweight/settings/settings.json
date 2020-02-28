@@ -1,0 +1,66 @@
+[
+  {
+    "id": 0,
+    "name": "ATR_KEY",
+    "isBoolean": 0,
+    "isReadonly": 0,
+    "isMandatory": 1,
+    "extraData": "product=key;"
+  },
+  {
+    "id": 1,
+    "name": "ATR_STAMP",
+    "isBoolean": 0,
+    "isReadonly": 0,
+    "isMandatory": 0,
+    "extraData": "product=DueDate;outputInMinutes=1;"
+  },
+  {
+    "id": 2,
+    "name": "ATR_CALL_ID",
+    "isBoolean": 0,
+    "isReadonly": 0,
+    "isMandatory": 0,
+    "extraData": ""
+  },
+  {
+    "id": 3,
+    "name": "ATR_COUNT",
+    "isBoolean": 0,
+    "isReadonly": 0,
+    "isMandatory": 0,
+    "extraData": ""
+  },
+  {
+    "id": 4,
+    "name": "ATR_EARLY_START",
+    "isBoolean": 0,
+    "isReadonly": 0,
+    "isMandatory": 0,
+    "extraData": ""
+  },
+  {
+    "id": 5,
+    "name": "ATR_EARLY_END",
+    "isBoolean": 0,
+    "isReadonly": 0,
+    "isMandatory": 0,
+    "extraData": ""
+  },
+  {
+    "id": 6,
+    "name": "ATR_ASSETS",
+    "isBoolean": 0,
+    "isReadonly": 0,
+    "isMandatory": 0,
+    "extraData": ""
+  },
+  {
+    "id": 7,
+    "name": "ATR_CATEGORY",
+    "isBoolean": 0,
+    "isReadonly": 0,
+    "isMandatory": 0,
+    "extraData": ""
+  }
+]
