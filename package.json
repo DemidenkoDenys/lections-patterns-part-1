@@ -1,15 +1,91 @@
 {
   "scripts": {
+    "start": "node cli.js",
     "singleton:class": "node --experimental-modules src/singleton/class",
     "singleton:module": "node --experimental-modules src/singleton/module",
     "singleton:simpliest": "node --experimental-modules src/singleton/simpliest",
+    "decorator:react": "npx http-server -o src/decorator/react",
+    "decorator:console": "npx ts-node src/decorator/console",
     "decorator:readonly": "npx ts-node src/decorator/readonly",
-    "decorator:array-wrapper": "npx ts-node src/decorator/array-wrapper"
+    "decorator:arrayWrapper": "npx ts-node src/decorator/array-wrapper",
+    "facade:api": "node --experimental-modules src/facade/api",
+    "facade:react": "npx http-server -o src/facade/react",
+    "builder:react": "npx http-server -o src/builder/react",
+    "builder:user": "npx ts-node src/builder/user",
+    "factory:user": "npx ts-node src/factory/user",
+    "factory:form": "npx http-server -o src/factory/form",
+    "flyweight:settings": "npx ts-node src/flyweight/settings",
+    "strategy:form": "npx http-server -o src/strategy/form"
   },
   "dependencies": {
+    "@types/inquirer": "^6.5.0",
     "@types/reflect-metadata": "^0.1.0",
+    "figlet": "^1.2.4",
+    "form-data": "^3.0.0",
+    "http-server": "^0.12.1",
+    "node-fetch": "^2.6.0",
     "reflect-metadata": "^0.1.13",
     "ts-node": "8.6.2",
     "typescript": "3.7.5"
+  },
+  "devDependencies": {
+    "@types/node": "^13.7.4",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.18.2",
+    "eslint-plugin-require": "0.0.1",
+    "inquirer": "^7.0.4",
+    "prettier": "^1.19.1"
+  },
+  "eslintConfig": {
+    "extends": [
+      "airbnb",
+      "prettier",
+      "prettier/react"
+    ],
+    "env": {
+      "node": true,
+      "es6": true
+    },
+    "rules": {
+      "experimentalDecorators": "error",
+      "import/prefer-default-export": "off",
+      "import/no-extraneous-dependencies": "off",
+      "global-require": "off",
+      "consistent-return": "off",
+      "react/destructuring-assignment": "off",
+      "react/prop-types": 1,
+      "no-use-before-define": [
+        "error",
+        {
+          "functions": true,
+          "classes": true,
+          "variables": true
+        }
+      ],
+      "react/jsx-filename-extension": [
+        1,
+        {
+          "extensions": [
+            ".js",
+            ".jsx"
+          ]
+        }
+      ],
+      "prettier/prettier": [
+        "error",
+        {
+          "printWidth": 100
+        }
+      ]
+    },
+    "plugins": [
+      "prettier"
+    ],
+    "parser": "babel-eslint"
   }
 }
