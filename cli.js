@@ -33,7 +33,12 @@ const patterns = {
     settings: 'Flyweight settings example'
   },
   strategy: {
-    form: 'Form strategy validation'
+    form: 'Form strategy validation',
+  },
+  chain: {
+    form: 'Chained form validation',
+    classic: 'Classic chain of responsibility pattern',
+    loop: 'Chain of responsibility - loop approach'
   }
 };
 

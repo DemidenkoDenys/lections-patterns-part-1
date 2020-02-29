@@ -1,6 +1,5 @@
 class Validator {
 
-  form;
   strategies = {};
 
   constructor(form) {
@@ -9,8 +8,7 @@ class Validator {
   }
 
   validate(event) {
-    const isFormValid = this.isFormValid();
-    if (!isFormValid) {
+    if (this.isFormValid() === false) {
       event.preventDefault();
     }
   }
@@ -23,9 +21,12 @@ class Validator {
     });
   }
 
+  get fields() {
+    return Array.from(this.form.elements);
+  }
+
   isFormValid() {
-    const formFields = Array.from(this.form.elements);
-    return formFields.every(field => this.isFieldValid(field));
+    return this.fields.every(field => this.isFieldValid(field));
   }
 
   isFieldValid(field) {
@@ -34,7 +35,7 @@ class Validator {
       const isValid = strategy(field.value);
       if (!isValid) {
         field.focus();
-        alert('Field "' + field.name + '" are not valid!');
+        alert('Field "' + field.name + '" is not valid!');
       }
       return isValid;
     }

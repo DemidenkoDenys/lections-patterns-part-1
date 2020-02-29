@@ -15,7 +15,10 @@
     "factory:user": "npx ts-node src/factory/user",
     "factory:form": "npx http-server -o src/factory/form",
     "flyweight:settings": "npx ts-node src/flyweight/settings",
-    "strategy:form": "npx http-server -o src/strategy/form"
+    "strategy:form": "npx http-server -o src/strategy/form",
+    "chain:form": "npx http-server -o src/chain-of-responsibility/form",
+    "chain:classic": "npx ts-node src/chain-of-responsibility/classic",
+    "chain:loop": "npx ts-node src/chain-of-responsibility/loop-approach"
   },
   "dependencies": {
     "@types/inquirer": "^6.5.0",
