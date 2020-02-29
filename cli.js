@@ -39,7 +39,8 @@ const patterns = {
     form: 'Chained form validation',
     classic: 'Classic chain of responsibility pattern',
     loop: 'Chain of responsibility - loop approach',
-    "mask-delimiter": 'Mask delimiter example'
+    "mask-delimiter": 'Mask delimiter example',
+    "search-bar": 'Search bar with rxjs pipe chaining example',
   }
 };
 

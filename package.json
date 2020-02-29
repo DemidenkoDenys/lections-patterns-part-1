@@ -19,7 +19,8 @@
     "chain:form": "npx http-server -o src/chain-of-responsibility/form",
     "chain:classic": "npx ts-node src/chain-of-responsibility/classic",
     "chain:loop": "npx ts-node src/chain-of-responsibility/loop-approach",
-    "chain:mask-delimiter": "npx ts-node src/chain-of-responsibility/mask-delimiter"
+    "chain:mask-delimiter": "npx ts-node src/chain-of-responsibility/mask-delimiter",
+    "chain:search-bar": "npx http-server -o src/chain-of-responsibility/search-bar"
   },
   "dependencies": {
     "@types/inquirer": "^6.5.0",
