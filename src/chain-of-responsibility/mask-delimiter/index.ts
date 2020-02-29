@@ -22,6 +22,6 @@ seacher.setChain(
   getMostSuitableDelimiter,
 );
 
-const delimiter = seacher.find('___mm,,,,,,,-dd---- yyyy-___');
+const delimiter = seacher.find('___//mm,,,,,,,-////dd----/ yyyy/-___');
 
-console.log(delimiter);
+console.log('Delimiter - \x1b[32m ' + delimiter);

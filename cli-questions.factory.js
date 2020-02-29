@@ -5,7 +5,8 @@ questionsFactory.setRootList = (name, message, choices, defaultChoice) => ({
     name,
     message,
     choices,
-    type: 'list',
+    pageSize: 10,
+    type: 'rawlist',
     default: defaultChoice,
   }]
 });
@@ -21,7 +22,7 @@ questionsFactory.setChoiceLists = lists =>
 
 function getList(name, choices) {
   return {
-    type: 'list',
+    type: 'rawlist',
     name: 'type',
     message: `Choose ${name} pattern example:`,
     choices: Object.entries(choices).map(([type, value]) => ({

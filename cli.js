@@ -36,11 +36,11 @@ const patterns = {
     form: 'Form strategy validation',
   },
   chain: {
+    classic: 'Classic pattern example',
+    loop: 'Loop approach',
     form: 'Chained form validation',
-    classic: 'Classic chain of responsibility pattern',
-    loop: 'Chain of responsibility - loop approach',
+    rxjs: 'Search bar with RXJS pipe chaining example',
     "mask-delimiter": 'Mask delimiter example',
-    "search-bar": 'Search bar with rxjs pipe chaining example',
   }
 };
 

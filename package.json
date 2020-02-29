@@ -20,7 +20,7 @@
     "chain:classic": "npx ts-node src/chain-of-responsibility/classic",
     "chain:loop": "npx ts-node src/chain-of-responsibility/loop-approach",
     "chain:mask-delimiter": "npx ts-node src/chain-of-responsibility/mask-delimiter",
-    "chain:search-bar": "npx http-server -o src/chain-of-responsibility/search-bar"
+    "chain:rxjs": "npx http-server -o src/chain-of-responsibility/rxjs"
   },
   "dependencies": {
     "@types/inquirer": "^6.5.0",
