@@ -41,6 +41,9 @@ const patterns = {
     form: 'Chained form validation',
     rxjs: 'Search bar with RXJS pipe chaining example',
     "mask-delimiter": 'Mask delimiter example',
+  },
+  observer: {
+    classic: 'Classic observer patter example'
   }
 };
 

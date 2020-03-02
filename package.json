@@ -20,7 +20,8 @@
     "chain:classic": "npx ts-node src/chain-of-responsibility/classic",
     "chain:loop": "npx ts-node src/chain-of-responsibility/loop-approach",
     "chain:mask-delimiter": "npx ts-node src/chain-of-responsibility/mask-delimiter",
-    "chain:rxjs": "npx http-server -o src/chain-of-responsibility/rxjs"
+    "chain:rxjs": "npx http-server -o src/chain-of-responsibility/rxjs",
+    "observer:classic": "npx ts-node src/observer/classic"
   },
   "dependencies": {
     "@types/inquirer": "^6.5.0",
@@ -30,6 +31,8 @@
     "http-server": "^0.12.1",
     "node-fetch": "^2.6.0",
     "reflect-metadata": "^0.1.13",
+    "request": "^2.88.2",
+    "request-promise-native": "^1.0.8",
     "ts-node": "8.6.2",
     "typescript": "3.7.5"
   },
